@@ -8,12 +8,14 @@ import android.widget.EditText
 import android.widget.Toast
 import com.example.helloworld.View.HomeActivity
 import com.example.helloworld.View.RegisterActivity
+import com.example.helloworld.databinding.ActivityLoginBinding
 
 class LoginActivity : AppCompatActivity() {
     val TAG = "LOGIN"
     val objectClass = Util()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val binding: ActivityLoginBinding
         setContentView(R.layout.activity_login)
         var edit_userName = findViewById<EditText>(R.id.username_login)
         var edit_password = findViewById<EditText>(R.id.password_login)
