@@ -1,10 +1,11 @@
-package com.example.helloworld
+package com.example.helloworld.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.example.helloworld.Util
 import com.example.helloworld.viewmodel.AuthModel
 import com.example.helloworld.databinding.ActivityLoginBinding
 import com.example.helloworld.viewmodel.AuthListener

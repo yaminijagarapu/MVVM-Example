@@ -1,4 +1,4 @@
-package com.example.helloworld.View
+package com.example.helloworld.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
