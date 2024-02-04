@@ -15,7 +15,7 @@ class AuthModel: ViewModel() {
             authlistener?.onFailure("Values are empty")
             return
         }*/
-        val userResponse = UserRepository().UserRepos()
+       // val userResponse = UserRepository().UserRepos()
         //Success
         authlistener?.onSuccess()
 

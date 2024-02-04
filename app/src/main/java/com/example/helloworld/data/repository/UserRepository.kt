@@ -3,31 +3,35 @@ package com.example.helloworld.data.repository
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.helloworld.data.Users
+import com.example.helloworld.data.db.AppDatabase
+import com.example.helloworld.data.db.entities.Users
 import com.example.helloworld.data.network.MyApi
-import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class UserRepository {
+class UserRepository (
+    private val api: MyApi,
+    private val db: AppDatabase
+    ){
+    private var TAG = "UserRepository"
 
     fun UserRepos(): LiveData<List<Users>> {
-        //val responseUsersRepos = MutableLiveData<String>()
+        Log.d(TAG,"UserRepos")
 
         val responseUsersList = MutableLiveData<List<Users>>()
-        Log.d("User Repos 1 ", "User Repos")
 
-        MyApi().getUsers()
+        api.getUsers()
             .enqueue(object : Callback<List<Users>> {
                 override fun onResponse(call: Call<List<Users>>, response: Response<List<Users>>) {
-                    Log.d("UserRepos 2", "OnResponse -> Message "+ response.raw())
-                   // Log.d("UserRepos 4", "OnResponse -> Body "+ response.body()?.String())
-                    Log.d("UserRepos 3", "OnResponse -> Body  "+ response.body())
+                    Log.d(TAG, "OnResponse -> Body "+ response.body())
+                    responseUsersList.value = response.body()
+                    Log.d(TAG, "OnResponse Store Data ")
+                  //  db.getusersDao().upsert(response.body()!!)
                 }
 
                 override fun onFailure(call: Call<List<Users>>, t: Throwable) {
-                    Log.d("UserRepos 4", "onFailure  "+ t.message)
+                    Log.d(TAG, "onFailure  "+ t.message)
                 }
 
             })

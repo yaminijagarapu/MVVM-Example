@@ -1,5 +1,6 @@
 package com.example.helloworld.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -22,6 +23,8 @@ class LoginActivity : AppCompatActivity(), AuthListener{
         val authmodel= ViewModelProvider(this).get(AuthModel::class.java)
         binding.authViewModel = authmodel
         authmodel?.authlistener = this
+
+
        /* var edit_userName = findViewById<EditText>(R.id.username_login)
         var edit_password = findViewById<EditText>(R.id.password_login)
         var btnLogin = findViewById<Button>(R.id.login_button)
@@ -63,6 +66,11 @@ class LoginActivity : AppCompatActivity(), AuthListener{
 */
     }
 
+    fun gotoNextActivity(){
+        var intent: Intent
+        intent = Intent(this, ActivityUsers::class.java)
+        startActivity(intent)
+    }
     override fun onStarted() {
         Log.d("Activity Login", "OnStarted")
     }

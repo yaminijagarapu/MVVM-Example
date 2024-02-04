@@ -1,7 +1,6 @@
 package com.example.helloworld.data.network
 
-import com.example.helloworld.data.Users
-import okhttp3.ResponseBody
+import com.example.helloworld.data.db.entities.Users
 import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
